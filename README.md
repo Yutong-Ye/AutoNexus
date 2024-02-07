@@ -3,7 +3,7 @@
 Team:
 
 * Gabe Wickert - Sales
-* Person 2 - Which microservice?
+* Yutong Ye - Service
 
 ## Design
 
