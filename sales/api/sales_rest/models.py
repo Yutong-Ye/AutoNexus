@@ -4,6 +4,9 @@ class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17)
     sold = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.vin
+
 class Salesperson(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -20,18 +23,18 @@ class Sale(models.Model):
 
     automobile = models.ForeignKey(
         AutomobileVO,
-        related_name="sales",
+        related_name="automobile",
         on_delete=models.CASCADE,
     )
 
     salesperson = models.ForeignKey(
         Salesperson,
-        related_name="sales",
+        related_name="salespeople",
         on_delete=models.CASCADE,
     )
 
     customer = models.ForeignKey(
         Customer,
-        related_name="sales",
+        related_name="customers",
         on_delete=models.CASCADE,
     )
