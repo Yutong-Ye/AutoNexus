@@ -32,9 +32,6 @@ function Nav() {
               <NavLink className="nav-link active" aria-current="page" to="/api/sales/new/">New Sale</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/api/list_sales_by_salespeople/<int:salesperson_id>/">Sales by Salesperson</NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/api/manufacturers/">Manufacturers</NavLink>
             </li>
             <li>

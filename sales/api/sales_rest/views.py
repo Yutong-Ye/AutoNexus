@@ -179,16 +179,3 @@ def api_show_sale(request, pk):
    else:
       sale.delete()
       return JsonResponse({"message": "Sale deleted"})
-
-@require_http_methods(["GET"])
-def api_list_sales_by_salespeople(request, salesperson_id):
-    try:
-        salesperson = Salesperson.objects.get(pk=salesperson_id)
-    except Salesperson.DoesNotExist:
-        return JsonResponse({"error": "Salesperson does not exist."}, status=404)
-
-    sales = Sale.objects.filter(salesperson=salesperson)
-    encoder = SalesListEncoder()
-    sales_data = encoder.encode(sales)
-
-    return JsonResponse({"sales": sales_data})
