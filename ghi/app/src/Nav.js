@@ -31,6 +31,39 @@ function Nav() {
             <li className="nav-item fs-5 px-4">
               <NavLink className="nav-link" aria-current="page" to="/appointments/history">Service History</NavLink>
             </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/customers/">Customer List</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/customers/new/">New Customer</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/salespeople/">Salespeople</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/salespeople/new/">New Salesperson</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/sales/">Sales List</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/sales/new/">New Sale</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/manufacturers/">Manufacturers</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/manufacturers/new/">Add a Manufacturer</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/models/">Vehicle Models</NavLink>
+            </li>
+            <li className="nav-item fs-5 px-4">
+              <NavLink className="nav-link" aria-current="page" to="/api/models/new/">New Vehicle Model</NavLink>
+            </li>
           </ul>
         </div>
       </div>

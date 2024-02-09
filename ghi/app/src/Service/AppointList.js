@@ -106,10 +106,10 @@ function ServList() {
                             <td> { appointment.service_reason } </td>
                             <td> { appointment.status } </td>
                             <td>
-                              <button style={{background: 'green'}} onClick={() => handleStatusUpdate(appointment.id, 'cancelled')}>
+                              <button style={{background: 'red'}} onClick={() => handleStatusUpdate(appointment.id, 'cancelled')}>
                                 Cancel
                               </button>
-                              <button style={{background: 'red'}} onClick={() => handleStatusUpdate(appointment.id, 'finished')}>
+                              <button style={{background: 'green'}} onClick={() => handleStatusUpdate(appointment.id, 'finished')}>
                                 Finish
                               </button>
                             </td>
