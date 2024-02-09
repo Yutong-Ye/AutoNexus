@@ -14,7 +14,7 @@ from django.db import transaction
 
 def get_automobiles():
     response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles/")
-    response.raise_for_status()  # Raise an error for bad responses
+    response.raise_for_status()
     content = response.json()
     return content.get("autos", [])
 
@@ -29,9 +29,9 @@ def update_automobile(automobile):
                     vin=vin,
                     defaults={"sold": sold}
                 )
-            print(f"Updated/Added AutomobileVO with VIN: {vin}, Sold: {sold}")
+            print(f"Updated AutomobileVO with VIN: {vin}, Sold: {sold}")
         except Exception as e:
-            print(f"Error updating/creating AutomobileVO with VIN {vin}: {e}")
+            print(f"Error updating AutomobileVO with VIN {vin}: {e}")
     else:
         print(f"Skipping invalid data for AutomobileVO: {automobile}")
 

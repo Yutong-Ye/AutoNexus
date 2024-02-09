@@ -117,6 +117,7 @@ function SaleForm() {
                         <div className="mb-3">
                             <label htmlFor="automobile">Automobile VIN</label>
                             <select onChange={handleFormChange} value={formData.automobile} required name="automobile" id="automobile" className="form-select">
+                            <option value="" disabled> Select Automobile VIN </option>
                             {autos.map(autos => {
                                 return (
                                     <option key={autos.vin} value={autos.vin}>{autos.vin}</option>
@@ -127,6 +128,7 @@ function SaleForm() {
                         <div className="mb-3">
                             <label htmlFor="salesperson">Salesperson</label>
                             <select onChange={handleFormChange} value={formData.salesperson} required name="salesperson" id="salesperson" className="form-select">
+                            <option value="" disabled>Salesperson Employee ID</option>
                             {salespeople.map(salesperson => {
                                 return (
                                     <option key={salesperson.employee_id} value={salesperson.employee_id}>{salesperson.employee_id}</option>
@@ -137,6 +139,7 @@ function SaleForm() {
                         <div className="mb-3">
                             <label htmlFor="customer">Customer</label>
                             <select onChange={handleFormChange} value={formData.customer} required name="customer" id="customer" className="form-select">
+                            <option value="" disabled>Customer First Name</option>
                             {customers.map(customer => {
                                 return (
                                     <option key={customer.first_name} value={customer.first_name}>{customer.first_name}</option>

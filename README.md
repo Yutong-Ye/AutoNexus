@@ -63,7 +63,7 @@ If you are using Insomnia, here are all of the directly possible methods that ca
 | Delete a Specific Salesperson | DELETE | http://localhost:8100/api/salespeople/<id>/
 | List Sales | GET | http://localhost:8090/api/sales/
 | Create a Sale | POST | http://localhost:8090/api/sales/
-| Delete a Specific Sale | DELETE | http://localhost:8090/api/sales/<id>
+| Delete a Specific Sale | DELETE | http://localhost:8090/api/sales/<id>/
 
 Please be aware that the Delete functions have not yet been implemented into the code for the front-end.
 
