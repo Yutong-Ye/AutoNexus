@@ -36,17 +36,142 @@ The primary goal of the Service microservice is to keep track of technicians, ov
 
 ###Service API Endpoints
 
+| Action | Method | URL
+| ----------- | ----------- | ----------- |
+| List Technicians | GET | `http://localhost:8080/api/technicians/`
+| Create a Technician| POST | `http://localhost:8080/api/technicians/`
+| Delete a Specific Technician| DELETE | `http://localhost:8080/api/technicians/<id>/`
+| List Appointments | GET | `http://localhost:8080/api/appointments`
+| Create a Appointment | POST | `http://localhost:8080/api/appointments`
+| Delete a Specific Appointment | DELETE | `http://localhost:8080/api/appointments/<id>/`
+
+####Technicians:
+The Technician API provides three key endpoints to interact with technician data: GET, POST, and DELETE. These endpoints can be accessed using a web browser or API testing tools like Insomnia.
+
+The 'GET' request retrieve a list of technicians, use the following URL:
+http://localhost:8080/api/technicians/ This 'GET' request does not require a JSON body. Upon submission, you will receive a list of technicians with automatically generated id.
 
 
+```python
+Example JSON Body:
+
+{
+    "first_name": "John",
+    "last_name": "Ye",
+    "employee_id": 123
+}
+
+Example Response Returned:
+{
+	"id": 1,
+	"first_name": "John",
+	"last_name": "Ye",
+	"employee_id": 123
+}
+```
 
 
+The 'POST' request add a new technician to the system, use the URL: http://localhost:8080/api/technicians/
+
+To create a new technician:
+```python
+Example JSON Body:
+
+{
+    "first_name":"Yutong",
+    "last_name":"Ye",
+    "employee_id":123
+}
+
+Example Response Returned:
+
+{
+	"id": 1,
+	"first_name": "Yutong",
+	"last_name": "Ye",
+	"employee_id": 123
+}
+```
+The 'DELETE' method delete a technician: http://localhost:8080/api/technicians/id/
+
+To remove a technician from the system, you only need the technician's unique ID. Substitute id in the URL with the actual ID of the technician. 
 
 
+```python
+Example Response Returned:
+{
+	"message": "Technician has been deleted"
+}
+```
 
 
+####Appointments:
+The Appointment API offers three primary endpoints for managing appointment data: GET, POST, and DELETE. 
+
+The 'GET' request retrieve a list of appointments, use the following URL:
+http://localhost:8080/api/appointments/ This 'GET' request does not require a JSON body. Upon submission, you will receive a list of appointments with automatically generated id.
+
+```python
+Example JSON Body:
+{
+	"appointments": [
+		{
+			"id": 2,
+			"vin": "1HGBH41JXMN109186",
+			"vip": false,
+			"date_time": "2024-02-10T14:00:00+00:00",
+			"customer": "Jane Smith",
+			"service_reason": "Regular maintenance",
+			"status": "Scheduled",
+			"techname": "John Ye"
+		}
+	]
+}
+```
+
+The 'POST' request add a new appointments to the system, use the URL: http://localhost:8080/api/appointments/
+
+To create a new appointments:
+```python
+Example JSON Body:
+{
+  "date_time": "2024-02-10T14:00:00Z",
+  "service_reason": "Regular maintenance",
+  "status": "Scheduled",
+  "vin": "1HGBH41JXMN109186",
+  "customer": "Jane Smith",
+  "vip": true,
+  "technician": 2
+}
+
+Example Response Returned:
+{
+	"appointments": [
+		{
+			"id": 2,
+			"vin": "1HGBH41JXMN109186",
+			"vip": false,
+			"date_time": "2024-02-10T14:00:00+00:00",
+			"customer": "Jane Smith",
+			"service_reason": "Regular maintenance",
+			"status": "Scheduled",
+			"techname": "John Ye"
+		}
+	]
+}
+```
+
+The 'DELETE' method delete an appointment: http://localhost:8080/api/appointments/id/
+
+To remove an appointment from the system, you only need the technician's unique ID. Substitute id in the URL with the actual ID of the appointment. 
 
 
-
+```python
+Example Response Returned:
+{
+	"message": "Appointment has been deleted."
+}
+```
 
 
 
@@ -64,15 +189,15 @@ If you are using Insomnia, here are all of the directly possible methods that ca
 
 | Action | Method | URL
 | ----------- | ----------- | ----------- |
-| List Customers | GET | http://localhost:8090/api/customers/
-| Create a Customer | POST | http://localhost:8090/api/customers/
-| Delete a Specific Customer | DELETE | http://localhost:8090/api/customers/<id>/
-| List Salespeople | GET | http://localhost:8090/api/salespeople/
-| Create a Salesperson | PUT | http://localhost:8090/api/salespeople/
-| Delete a Specific Salesperson | DELETE | http://localhost:8100/api/salespeople/<id>/
-| List Sales | GET | http://localhost:8090/api/sales/
-| Create a Sale | POST | http://localhost:8090/api/sales/
-| Delete a Specific Sale | DELETE | http://localhost:8090/api/sales/<id>/
+| List Customers | GET | `http://localhost:8090/api/customers/`
+| Create a Customer | POST | `http://localhost:8090/api/customers/`
+| Delete a Specific Customer | DELETE | `http://localhost:8090/api/customers/<id>/`
+| List Salespeople | GET | `http://localhost:8090/api/salespeople/`
+| Create a Salesperson | PUT | `http://localhost:8090/api/salespeople/`
+| Delete a Specific Salesperson | DELETE | `http://localhost:8100/api/salespeople/<id>/`
+| List Sales | GET | `http://localhost:8090/api/sales/`
+| Create a Sale | POST | `http://localhost:8090/api/sales/`
+| Delete a Specific Sale | DELETE | `http://localhost:8090/api/sales/<id>/`
 
 Please be aware that the Delete functions have not yet been implemented into the code for the front-end.
 
