@@ -85,8 +85,6 @@ function SaleForm() {
                     });
 
                     getData();
-                } else {
-                    console.error('Error updating automobile status:', updateResponse.statusText);
                 }
             } else {
                 console.error('Error submitting sale:', response.statusText);
@@ -106,7 +104,6 @@ function SaleForm() {
             [inputName]: value
         })
     }
-    console.log(formData)
     return (
         <div className="row">
             <div className="offset-3 col-6">
