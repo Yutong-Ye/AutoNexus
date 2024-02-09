@@ -34,7 +34,7 @@ The Service microservice features three main models: Technician, AutomobileVo, a
 
 The primary goal of the Service microservice is to keep track of technicians, oversee the status of service appointments, and manage a service history record, enabling searches for appointments using a vehicle's vin number. Furthermore, it enhances functionality by allowing the addition of new technicians and providing an appointment scheduling form to streamline the process of setting up new appointments.
 
-###Service API Endpoints
+### Service API Endpoints
 
 | Action | Method | URL
 | ----------- | ----------- | ----------- |
@@ -45,21 +45,16 @@ The primary goal of the Service microservice is to keep track of technicians, ov
 | Create a Appointment | POST | `http://localhost:8080/api/appointments`
 | Delete a Specific Appointment | DELETE | `http://localhost:8080/api/appointments/<id>/`
 
-####Technicians:
+### Technicians:
 The Technician API provides three key endpoints to interact with technician data: GET, POST, and DELETE. These endpoints can be accessed using a web browser or API testing tools like Insomnia.
+
+In the Technician system, each technician has a special number called an id that is given to them automatically to make sure they can be easily found and not mixed up with others. They also have fields for their first_name and last_name to know their full name. Lastly, there's an employee_id, which is a unique number the company uses to keep track of each technician for things like pay and work schedules.
 
 The 'GET' request retrieve a list of technicians, use the following URL:
 http://localhost:8080/api/technicians/ This 'GET' request does not require a JSON body. Upon submission, you will receive a list of technicians with automatically generated id.
 
 
 ```python
-Example JSON Body:
-
-{
-    "first_name": "John",
-    "last_name": "Ye",
-    "employee_id": 123
-}
 
 Example Response Returned:
 {
@@ -92,6 +87,9 @@ Example Response Returned:
 	"employee_id": 123
 }
 ```
+
+In the above setup, each technician has a special number called an id that is given to them automatically to make sure they can be easily found and not mixed up with others. They also have fields for their first_name and last_name to know their full name. Lastly, there's an employee_id, which is a unique number the company uses to keep track of each technician for things like pay and work schedules.
+
 The 'DELETE' method delete a technician: http://localhost:8080/api/technicians/id/
 
 To remove a technician from the system, you only need the technician's unique ID. Substitute id in the URL with the actual ID of the technician. 
@@ -105,14 +103,16 @@ Example Response Returned:
 ```
 
 
-####Appointments:
+### Appointments:
 The Appointment API offers three primary endpoints for managing appointment data: GET, POST, and DELETE. 
+
+In the Appointment system, each service appointment is uniquely identified (id) and includes essential details like the appointment time (date_time), reason (service_reason), and customer name. It's linked to a vehicle (vin) and indicates if the customer is a priority (vip). The assigned technician is identified by an ID, streamlining the scheduling process. This setup efficiently organizes appointments, ensuring accurate service delivery and customer satisfaction, with the system providing concise records of each service event.
 
 The 'GET' request retrieve a list of appointments, use the following URL:
 http://localhost:8080/api/appointments/ This 'GET' request does not require a JSON body. Upon submission, you will receive a list of appointments with automatically generated id.
 
 ```python
-Example JSON Body:
+Example JSON Body Returned:
 {
 	"appointments": [
 		{
