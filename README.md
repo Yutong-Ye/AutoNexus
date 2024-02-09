@@ -2,12 +2,12 @@
 
 CarCar is an application that handles both the services and sales aspect of an automotive service and sales center. CarCar manages the aspects of Automobile Inventory (Including Make, Model, and VIN) as well as the Service Appointments, Technicians, Customers, Sales, Salespeople, and the Customers who purchased vehicles.
 
-####Team:
+#### Team:
 
 * Gabe Wickert - Sales
 * Yutong Ye - Service
 
-###Project Set up 💻
+#### Project Set up 💻
 
 1.Fork the repo at https://gitlab.com/GabrielWickert/project-beta
 
