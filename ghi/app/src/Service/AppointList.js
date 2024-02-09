@@ -13,8 +13,8 @@ function AppointmentList() {
       const data = await response.json();
       const filteredAppointments = data.appointments.filter(
         (appointment) =>
-          appointment.status !== 'cancelled' &&
-          appointment.status !== 'finished'
+          appointment.status !== 'finished' &&
+          appointment.status !== 'cancelled'
       );
       setAppointments(filteredAppointments);
       setFiltered(filteredAppointments);
@@ -32,6 +32,7 @@ function AppointmentList() {
       )
     );
   }, [searchVin, appointments]);
+
 
   const handleStatusUpdate = async (id, status) => {
     const data ={
@@ -52,10 +53,10 @@ function AppointmentList() {
           prevAppointments.filter((appointment) => appointment.id !== id)
         );
       } else {
-        console.error('Failed to update appointment status');
+        console.error('Failed to update status');
       }
-    } catch (error) {
-      console.error('Error updating appointment status:', error);
+    } catch (e) {
+      console.error('Error updating status:', e);
     }
   };
 
@@ -79,13 +80,12 @@ function AppointmentList() {
             <thead>
                 <tr>
                     <th>VIN</th>
+                    <th>Is VIP?</th>
                     <th>Customer</th>
-                    <th>VIP?</th>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Technician</th>
                     <th>Reason</th>
-                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -94,24 +94,24 @@ function AppointmentList() {
                 const key = appointment.id;
                 const [date, fullTime] = appointment.date_time.split('T');
                 const time = fullTime.slice(0, 5);
-                const formattedTime = new Date(`2000-01-01T${time}Z`).toLocaleTimeString([], {hour: '2-digit',minute: '2-digit',});
+                const formattedTime = new Date(`2000-01-01T${time}Z`).toLocaleTimeString([], {hour: '2-digit',minute: '2-digit', second: '2-digit'});
                     return (
                         <tr key={key}>
                             <td> { appointment.vin } </td>
-                            <td> { appointment.customer } </td>
                             <td> { appointment.vip ? 'Yes' : 'No' } </td>
+                            <td> { appointment.customer } </td>
                             <td> { date } </td>
                             <td> { formattedTime }  </td>
                             <td> { appointment.techname } </td>
                             <td> { appointment.service_reason } </td>
-                            <td> { appointment.status } </td>
                             <td>
-                              <button style={{background: 'green'}} onClick={() => handleStatusUpdate(appointment.id, 'cancelled')}>
+                            <button style={{background: 'red'}} onClick={() => handleStatusUpdate(appointment.id, 'cancelled')}>
                                 Cancel
                               </button>
-                              <button style={{background: 'red'}} onClick={() => handleStatusUpdate(appointment.id, 'finished')}>
+                            <button style={{background: 'green'}} onClick={() => handleStatusUpdate(appointment.id, 'finished')}>
                                 Finish
                               </button>
+
                             </td>
                         </tr>
                     );

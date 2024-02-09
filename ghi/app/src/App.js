@@ -3,9 +3,11 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import AppointmentHistory from './Service/AppointHistory';
 import TechnicianList from './Service/TechList';
-import TechnicianForm from './Service/TechList';
+import TechnicianForm from './Service/TechForm';
 import AppointmentForm from './Service/AppointForm';
 import AppointmentList from './Service/AppointList';
+import AutomobileForm from './Inventory/AutoForm';
+import AutomobileList from './Inventory/AutoList';
 
 
 function App() {
@@ -15,6 +17,10 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="automobiles">
+            <Route index element={<AutomobileList />} />
+            <Route path="create" element={<AutomobileForm />} />
+          </Route>
           <Route path="technicians">
             <Route index element={<TechnicianList />} />
             <Route path="create" element={<TechnicianForm />} />
@@ -25,6 +31,7 @@ function App() {
             <Route path="history" element={<AppointmentHistory />} />
           </Route>
         </Routes>
+
       </div>
     </BrowserRouter>
   );
