@@ -29,7 +29,7 @@ function SaleForm() {
         if (formData.automobile) {
             const index = autos.findIndex(auto => auto.id === formData.automobile);
             if (index !== -1) {
-                const newAutos = [... autos]
+                const newAutos = [...autos]
                 newAutos[index].sold = true
                 setAutomobiles(newAutos)
             }
@@ -43,10 +43,9 @@ function SaleForm() {
         const saleUrl = 'http://localhost:8090/api/sales/';
 
         try {
-            // Submit sale data
-            const selectedAutomobile = autos.find(auto => auto.id === formData.automobile);
-            const selectedSalesperson = salespeople.find(person => person.id === formData.salesperson);
-            const selectedCustomer = customers.find(customer => customer.id === formData.customer);
+            const selectedAutomobile = autos.find(auto => auto.vin === formData.automobile);
+            const selectedSalesperson = salespeople.find(salesperson => salesperson.employee_id === formData.salesperson);
+            const selectedCustomer = customers.find(customer => customer.first_name === formData.customer);
 
             const formDataToSend = {
                 price: formData.price,
@@ -66,8 +65,7 @@ function SaleForm() {
             const response = await fetch(saleUrl, fetchConfig);
 
             if (response.ok) {
-                // Update automobile status to 'sold' on successful sale
-                const automobileUpdateUrl = `http://localhost:8100/api/automobiles/vin/${encodeURIComponent(formDataToSend.automobile)}/`;
+                const automobileUpdateUrl = `http://localhost:8100/api/automobiles/${encodeURIComponent(formDataToSend.automobile)}/`;
                 const automobileUpdateConfig = {
                     method: 'put',
                     body: JSON.stringify({ sold: true }),
@@ -79,7 +77,6 @@ function SaleForm() {
                 const updateResponse = await fetch(automobileUpdateUrl, automobileUpdateConfig);
 
                 if (updateResponse.ok) {
-                    // Reset the form data after successful submission
                     setFormData({
                         price: '',
                         automobile: '',
@@ -87,14 +84,12 @@ function SaleForm() {
                         customer: '',
                     });
 
-                    // Fetch updated sales data
                     getData();
                 } else {
                     console.error('Error updating automobile status:', updateResponse.statusText);
                 }
             } else {
                 console.error('Error submitting sale:', response.statusText);
-                // Log the response body for more details
                 const responseBody = await response.json();
                 console.error('Response body:', responseBody);
             }
