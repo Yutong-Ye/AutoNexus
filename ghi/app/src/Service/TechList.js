@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function TechnicianList () {
+function TechList() {
     const [techs, setTech] = useState([]);
 
     const getData = async() => {
@@ -20,14 +20,13 @@ function TechnicianList () {
         <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-            <h1>Technicians</h1>
+            <h1>Technicians List</h1>
         <table className="table table-striped">
             <thead>
                 <tr>
-                <th>Employee ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                    
+                    <th>Employee ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,9 +34,9 @@ function TechnicianList () {
                     const key = tech.id
                     return (
                     <tr key={key}>
+                        <td>{ tech.employee_id } </td>
                         <td>{ tech.first_name } </td>
                         <td>{ tech.last_name } </td>
-                        <td>{ tech.employee_id } </td>
                     </tr>
                     );
                 })
@@ -51,4 +50,4 @@ function TechnicianList () {
 }
 
 
-export default TechnicianList ;
+export default TechList;

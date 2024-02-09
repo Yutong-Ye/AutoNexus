@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-function AppointmentForm() {
+function ServForm() {
     const [vin, setVin] = useState('');
     const handleVinChange = (event) => {
         const value = event.target.value;
@@ -85,11 +85,11 @@ function AppointmentForm() {
               <form onSubmit={handleSubmit} id="create-appointment-form">
                 <div className="form-floating mb-3">
                   <input onChange={handleVinChange} placeholder="vin" required type="text" name="vin" value={vin} id="vin" className="form-control"/>
-                  <label htmlFor="vin">Automoblie VIN</label>
+                  <label htmlFor="vin">Vehicle VIN</label>
                 </div>
                 <div className="form-floating mb-3">
                   <input onChange={handleCustomerChange} placeholder="customer" required type="text" name="customer" value={customer} id="customer" className="form-control"/>
-                  <label htmlFor="customer">Customer</label>
+                  <label htmlFor="customer">Customer Name</label>
                 </div>
                 <div className="form-floating mb-3">
                   <input onChange={handleDateChange} placeholder="YYYY/MM/DD" required type="date" name="date" value={date} id="date" className="form-control"/>
@@ -99,19 +99,19 @@ function AppointmentForm() {
                   <input onChange={handleTimeChange} placeholder="HH:mm" required type="time" name="time" value={time} id="time" className="form-control"/>
                   <label htmlFor="time">Time</label>
                 </div>
+                <div className="form-floating mb-3">
+                  <input onChange={handleReasonChange} placeholder="service_reason" required type="text" name="service_reason" value={service_reason} id="service_reason" className="form-control"/>
+                  <label htmlFor="service_reason">Reason</label>
+                </div>
                 <div className="mb-3">
                     <select onChange={handleTechChange} required name="technician" value={technician} id="technician" className="form-select">
-                    <option value="">Choose a Technician...</option>
+                    <option value="">Choose A Technician</option>
                     {techs.map(techs => {
                         return ([
                             <option key={techs.id} value={techs.id}>{techs.first_name + " " + techs.last_name}</option>,
                         ]);
                     })}
                     </select>
-                </div>
-                <div className="form-floating mb-3">
-                  <input onChange={handleReasonChange} placeholder="service_reason" required type="text" name="service_reason" value={service_reason} id="service_reason" className="form-control"/>
-                  <label htmlFor="service_reason">Reason</label>
                 </div>
                 <button className="btn btn-primary">Create</button>
               </form>
@@ -122,4 +122,4 @@ function AppointmentForm() {
 }
 
 
-export default AppointmentForm;
+export default ServForm;

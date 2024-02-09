@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function AppointmentHistory() {
+function ServHist() {
   const [appointments, setAppointments] = useState([]);
   const [filteredAppointments, setFiltered] = useState([]);
   const [searchVin, setSearchVin] = useState('');
@@ -32,8 +32,10 @@ function AppointmentHistory() {
   return (
     <div className="row">
         <h1>Service History</h1>
-          <div className="form-floating mb-3">
-            <label htmlFor="vinSearch" >Search by VIN:</label>
+          <div className="mb-3">
+            <label htmlFor="vinSearch" className="form-label">
+              Search by VIN:
+            </label>
             <input
               type="text"
               className="form-control"
@@ -46,8 +48,8 @@ function AppointmentHistory() {
             <thead>
                 <tr>
                     <th>VIN</th>
-                    <th>Is VIP?</th>
                     <th>Customer</th>
+                    <th>VIP?</th>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Technician</th>
@@ -60,12 +62,12 @@ function AppointmentHistory() {
                 const key = appointment.id;
                 const [date, fullTime] = appointment.date_time.split('T');
                 const time = fullTime.slice(0, 5);
-                const formattedTime = new Date(`2000-01-01T${time}Z`).toLocaleTimeString([], {hour: '2-digit',minute: '2-digit', second: '2-digit'});
+                const formattedTime = new Date(`2000-01-01T${time}Z`).toLocaleTimeString([], {hour: '2-digit',minute: '2-digit',});
                     return (
                         <tr key={key}>
                             <td> { appointment.vin } </td>
-                            <td> { appointment.vip ? 'Yes' : 'No' } </td>
                             <td> { appointment.customer } </td>
+                            <td> { appointment.vip ? 'Yes' : 'No' } </td>
                             <td> { date } </td>
                             <td> { formattedTime }  </td>
                             <td> { appointment.techname } </td>
@@ -81,4 +83,4 @@ function AppointmentHistory() {
     );
 }
 
-export default AppointmentHistory;
+export default ServHist;
