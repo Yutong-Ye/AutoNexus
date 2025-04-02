@@ -203,14 +203,17 @@ Please be aware that the Delete functions have not yet been implemented into the
 
 In order to submit a Create, please follow the following guidelines (when using a JSON BODY):
 Create Customer:
+```python
 {
 	"first_name": "Josh",
 	"last_name": "Elder",
 	"address": "69420 Capitol Hill, Seattle, WA 98102",
 	"phone_number": "1231231234"
 }
+```
 The return value will be the same as the input with the addition of an "id" property.
 
+```python
 Create Salesperson:
 {
 	"first_name": "Jaik",
@@ -218,7 +221,8 @@ Create Salesperson:
 	"employee_id": "jascher"
 }
 The employee_id consists of the first name inital, followed by the last name in lowercase. The return value will be the same as the input, with the addition of an "id" property.
-
+```
+```python
 Create a Sale:
 {
 	"price": 1000000,
@@ -226,8 +230,10 @@ Create a Sale:
 	"salesperson": "jascher",
 	"customer": "Josh"
 }
+```
 Please be aware, that these parameters are specifically the Automobile VIN (17 Characters), the Salesperson Employee ID, Price, and the Customer's First Name.
 
+```python
 The resulting output:
 {
 	"id": 16,
@@ -251,5 +257,6 @@ The resulting output:
 		"phone_number": "1231231234"
 	}
 }
+```
 
 For deleting any of these, simply add the id of that particular sale, salesperson, or customer to the end of your url, and submit as a DELETE request.
