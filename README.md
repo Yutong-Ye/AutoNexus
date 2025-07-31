@@ -1,6 +1,6 @@
 # CarCar
 
-CarCar is an application that handles both the services and sales aspect of an automotive service and sales center. CarCar manages the aspects of Automobile Inventory (Including Make, Model, and VIN) as well as the Service Appointments, Technicians, Customers, Sales, Salespeople, and the Customers who purchased vehicles.
+CarCar is an application that handles both the services and sales aspects of an automotive service and sales center. CarCar manages the aspects of Automobile Inventory (Including Make, Model, and VIN) as well as the Service Appointments, Technicians, Customers, Sales, Salespeople, and the Customers who purchased vehicles.
 
 #### Team:
 
@@ -9,20 +9,20 @@ CarCar is an application that handles both the services and sales aspect of an a
 
 #### Project Set up 💻
 
-1.Fork the repo at https://gitlab.com/GabrielWickert/project-beta
+1. Fork the repo at https://gitlab.com/GabrielWickert/project-beta
 
-2.Clone your fork to your projects directory.
+2 .Clone your fork to your projects directory.
 
-3.Change directory into the repository directory.
+3. Change directory into the repository directory.
 
-4.Run the follwing commands to set up docker envirnment 
+4. Run the following commands to set up Docker environment 
 
 ```
 docker volume create beta-data
 docker compose build
 docker compose up
 ```
- 5.Enter "localhost:3000" in your web browser to see the front-end of the React app in action, showcasing its dynamic and interactive features.
+ 5. Enter "localhost:3000" in your web browser to see the front-end of the React app in action, showcasing its dynamic and interactive features.
 
 ### Project Diagram
 
@@ -66,7 +66,7 @@ Example Response Returned:
 ```
 
 
-The 'POST' request add a new technician to the system, use the URL: http://localhost:8080/api/technicians/
+The 'POST' request adds a new technician to the system, use the URL: http://localhost:8080/api/technicians/
 
 To create a new technician:
 ```python
@@ -185,7 +185,8 @@ Sales are used to keep track of sales that have occurred.
 
 AutomobileVO is updated by the poller, which pulls the VIN and "Sold" factor from the Automobiles in inventory every 60 seconds.
 
-If you are using Insomnia, here are all of the directly possible methods that can be used with the views inside of the Sales microservice (otherwise, these are completed using the front-end interface):
+
+### Sales API Endpoints
 
 | Action | Method | URL
 | ----------- | ----------- | ----------- |
@@ -209,7 +210,7 @@ POST http://localhost:8090/api/customers/
 	"phone_number": "1231231234"
 }
 ```
-Response:
+Create a Customer Response:
 ```python
 {
   "id": 4,
@@ -230,7 +231,7 @@ Create Salesperson:
 	"employee_id": "jascher"
 }
 ```
-Response:
+Create a Salesperson Response:
 ```python 
 {
   "id": 5,
@@ -252,7 +253,7 @@ Create a Sale:
 	"customer": "Josh"
 }
 ```
-Response:
+Create a Sale Response:
 ```python
 {
   "id": 16,
@@ -279,9 +280,14 @@ Response:
 
 To delete a customer, salesperson, or sale, make a DELETE request to the appropriate URL with the correct id:
 
-DELETE http://localhost:8090/api/customers/<id>/
-DELETE http://localhost:8090/api/salespeople/<id>/
-DELETE http://localhost:8090/api/sales/<id>/
+DELETE 
+```
+{
+http://localhost:8090/api/customers/<id>/
+http://localhost:8090/api/salespeople/<id>/
+http://localhost:8090/api/sales/<id>/
+}
+```
 
 
 
